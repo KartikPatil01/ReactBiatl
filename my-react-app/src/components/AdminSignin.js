@@ -15,26 +15,35 @@ const AdminSignin = () => {
     const signinAdmin =  async (e) =>{
         e.preventDefault();
 
-        const res = await fetch('/signinAdmin', {
-            method : "POST",
-            headers : {
-                "Content-Type" : "application/json"
-            },
-            body:JSON.stringify({
-                adminName,
-                adminPassword
-            })
-        });
-        const data = res.json();
-
-        if(res.status === 400 || !data){
-            window.alert("invalid Credentials");
-        }
-        else{
+        if( adminName === "kartikpatil393@gmail.com" && adminPassword == 8975512732) {
             dispatchadmin({type: "ADMIN", payload:true})
             window.alert("Signin Successfull");
             adminHistory("/dashboard");
         }
+        else {
+            window.alert("invalid Credentials");
+        }
+        // const res = await fetch('/signinAdmin', {
+        //     method : "POST",
+        //     headers : {
+        //         "Content-Type" : "application/json"
+        //     },
+        //     body:JSON.stringify({
+        //         adminName,
+        //         adminPassword
+        //     })
+        // });
+        // const data = res.json();
+
+        // if(res.status === 400 || !data){
+            
+        // }
+        // else{
+        //     dispatchadmin({type: "ADMIN", payload:true})
+        //     window.alert("Signin Successfull");
+        //     adminHistory("/dashboard");
+        // }
+        
     }
 
 
@@ -47,7 +56,7 @@ const AdminSignin = () => {
 
 <div id="menu-btn" className="fas fa-bars"></div>
 
-<a href="#" className="logo"> <span>Bike</span>Book </a>
+<a href="#" className="logo"> <span>Bicycle</span>Rental </a>
 
 <nav className="navbar">
 <NavLink className="nav-link" to="/">Home</NavLink>

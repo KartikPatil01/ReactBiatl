@@ -22,16 +22,18 @@ module.exports = router.post('/signin', async(req, res)=>{
 
                 token = await userSignin.generateAuthToken();
 
-                res.cookie("jwtoken", token, {
+                res.cookie("access", token, {
                     expires: new Date(Date.now() + 25892000000),
                     httpOnly: true
                 })
-                console.log(token);
+                // console.log("token is generated",token);
 
                 if(!isSame){
                     res.status(400).json({error: "invalid crededntials"})    
                 }else{
-                    res.json({message: "user signin successfully"})
+                    res.json({message: "User Signin Successfully"})
+                
+                    // console.log("token is generated",token);
                 }
         
         }else{

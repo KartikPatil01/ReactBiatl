@@ -48,9 +48,10 @@ adminSchema.pre('save', async function(next){
 //generating token
 adminSchema.methods.generateAuthToken = async function(){
     try{
-        let token = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
+        let token = jwt.sign({_id: this._id}, "Vo7AcPRMvjb3b5SUHx73vinnPp90BBEStC7*******");
 
         this.tokens = this.tokens.concat({token:token});
+        window.localStorage.setItem("token" ,this.token);
         await this.save();
         return token;
 

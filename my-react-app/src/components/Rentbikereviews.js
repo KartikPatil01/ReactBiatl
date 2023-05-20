@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-
 import { UserContext } from "../App"
 
 const Rentbikereviews = () => {
@@ -27,7 +26,7 @@ const Rentbikereviews = () => {
 
     const sendId = async () =>{
         try {
-            const res = await fetch("/sendReviewRentBikeId", {
+            const res = await fetch("http://localhost:5000/sendReviewRentBikeId", {
                 method: "POST",
                 headers:{
                     "Content-Type" : "application/json"
@@ -53,7 +52,7 @@ const Rentbikereviews = () => {
 
     const reviewBikeData = async () =>{
         try {
-            const res = await fetch ('/getRentBikeReviews', {
+            const res = await fetch ('http://localhost:5000/getRentBikeReviews', {
                 method: 'GET',
             });
 
@@ -91,7 +90,7 @@ const Rentbikereviews = () => {
 
     const getallreviews = async () =>{
         try {
-            const res = await fetch ('/getallreviewsforselectedrentbike', {
+            const res = await fetch ('http://localhost:5000/getallreviewsforselectedrentbike', {
                 method: 'GET',
             });
 
@@ -126,7 +125,7 @@ const Rentbikereviews = () => {
 
         const {id, name, email, message}= userData;
 
-        const res = await fetch('/postrentbikereviews',{
+        const res = await fetch('http://localhost:5000/postrentbikereviews',{
             method:'POST',
             headers: {
                 "Content-Type" : "application/json"
@@ -177,7 +176,7 @@ const Rentbikereviews = () => {
         <>
             <header className="header">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                <NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+                <NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
                 <nav className="navbar">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/rentbike">Rent Bikes</NavLink>

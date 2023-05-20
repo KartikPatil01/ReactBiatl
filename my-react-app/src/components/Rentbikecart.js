@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 import Stripe from "react-stripe-checkout";
-
 import { UserContext } from "../App"
 
 const Rentbikecart = () => {
@@ -14,7 +13,7 @@ const Rentbikecart = () => {
 
     const getCartData = async () =>{
         try {
-            const res = await fetch ('/getRentCartData', {
+            const res = await fetch ('http://localhost:5000/getRentCartData', {
                 method: 'GET',
             });
 
@@ -44,7 +43,7 @@ const Rentbikecart = () => {
     })
 
     const handlePayMethod = (itemsPrice, token) =>{
-            return fetch("/stripeRentPay", {
+            return fetch("http://localhost:5000/stripeRentPay", {
                 method: "POST",
                 headers:{
                     "Content-Type" : "application/json"
@@ -66,7 +65,7 @@ const Rentbikecart = () => {
 
 
     const updateDataBase = () =>{
-        return fetch("/updateRentDataBase", {
+        return fetch("http://localhost:5000/updateRentDataBase", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -101,7 +100,7 @@ const Rentbikecart = () => {
         <>
              <header className="header">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                <NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+                <NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
 
                 <nav className="navbar">
                 <NavLink to="/">Home</NavLink>
@@ -120,7 +119,7 @@ const Rentbikecart = () => {
                 {items.map((items) => 
                     <div className = "salecartLidiv"  key={items._id}>
                             <ul>
-                                <li style={{wordSpacing: "10px"}}>Brand: {items.brand} --- Model: {items.model} --- Hours: {items.requiredhours} --- RentPerHour: {items.rentperhour}Taka --- TotalBill: {items.totalbill}Taka   <button className="btn"><i className="fa fa-trash"></i></button></li>
+                                <li style={{wordSpacing: "10px"}}>Brand: {items.brand} --- Model: {items.model} --- Hours: {items.requiredhours} --- RentPerHour: {items.rentperhour}.Rs --- TotalBill: {items.totalbill}.Rs   <button className="btn"><i className="fa fa-trash"></i></button></li>
                             </ul> 
                         </div>
                      

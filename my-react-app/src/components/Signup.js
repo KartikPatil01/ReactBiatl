@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import "../registerStyle.css"
 import { NavLink, useNavigate } from 'react-router-dom'
 
-
 const Signup = () => {
 
     const history = useNavigate();
@@ -29,7 +28,7 @@ const Signup = () => {
 
         const {name, phone, email, password, cPassword} = user;
 
-        const res = await fetch("/signup", {
+        const res = await fetch("http://localhost:5000/signup", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -59,7 +58,7 @@ const Signup = () => {
 
 <div id="menu-btn" className="fas fa-bars"></div>
 
-<NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+<NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
 
 <nav className="navbar">
     <NavLink  to="/">Home</NavLink>

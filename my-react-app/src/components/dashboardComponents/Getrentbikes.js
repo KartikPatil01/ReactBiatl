@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {NavLink} from "react-router-dom";
-
 import { AdminContext } from "../../App"
 
 const Getrentbikes = () => {
@@ -11,7 +10,7 @@ const Getrentbikes = () => {
 
   const getallrenttbikes = async () =>{
     try {
-        const res = await fetch (process.env.BASE_URL+'/getAvailableRentBikes', {
+        const res = await fetch ('http://localhost:5000/getAvailableRentBikes', {
             method: 'GET',
         });
 
@@ -32,7 +31,7 @@ let bikeIdFromDashBoard;
   const deleteUser = (e) =>{
     bikeIdFromDashBoard = e.target.id;
 
-    return fetch("/deleteRentBikeFromDashboard", {
+    return fetch("http://localhost:5000/deleteRentBikeFromDashboard", {
       method: "POST",
       headers:{
           "Content-Type" : "application/json"
@@ -67,7 +66,7 @@ let bikeIdFromDashBoard;
             <div className="sidebar">
     <div className="logo-details">
       <i className=''></i>
-      <span className='logo_name1'>Bike</span><span className="logo_name">Book</span>
+      <span className='logo_name1'>Bicycle</span><span className="logo_name">Rental</span>
     </div>
       <ul className="nav-links">
         <li>

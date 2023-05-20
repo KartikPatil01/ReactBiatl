@@ -6,8 +6,7 @@ const adminAuthentication = async (req, res, next) =>{
     try {
 
         const token = req.cookies.jwtAdmin;
-        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
-
+        const verifyToken = jwt.verify(token, "Vo7AcPRMvjb3b5SUHx73vinnPp90BBEStC7*******");
         const rootAdmin = await Admin.findOne({_id: verifyToken._id, "tokens.token":token});
 
         if(!rootAdmin){ throw new Error('Admin not found')}
@@ -19,7 +18,7 @@ const adminAuthentication = async (req, res, next) =>{
         next();
 
     } catch (error) {
-        res.status(401).send('Unautorized: No token provided')
+        res.status(401).send('Unautorized: No token provided ')
         console.log(error);
     }
 }

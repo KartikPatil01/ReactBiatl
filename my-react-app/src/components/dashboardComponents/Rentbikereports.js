@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {NavLink} from "react-router-dom";
-
 import { AdminContext } from "../../App"
 
 const Rentbikereports = () => {
@@ -12,7 +11,7 @@ const Rentbikereports = () => {
 
   const getrentbikeincome = async () =>{
       try {
-          const res = await fetch ('/getrentbikeincome', {
+          const res = await fetch ('http://localhost:5000/getrentbikeincome', {
               method: 'GET',
           });
 
@@ -62,7 +61,7 @@ const Rentbikereports = () => {
             <div className="sidebar">
     <div className="logo-details">
       <i className=''></i>
-      <span className='logo_name1'>Bike</span><span className="logo_name">Book</span>
+      <span className='logo_name1'>Bicycle</span><span className="logo_name">Rental</span>
     </div>
       <ul className="nav-links">
         <li>

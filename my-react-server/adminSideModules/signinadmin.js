@@ -32,6 +32,7 @@ module.exports =  router.post('/signinAdmin', async(req, res)=>{
                     res.status(400).json({error: "invalid crededntials"})
                 }else{
                     res.json({message: "user signin successfully"})
+                    // console.log("token is generted",token);
                 }
 
         }else{

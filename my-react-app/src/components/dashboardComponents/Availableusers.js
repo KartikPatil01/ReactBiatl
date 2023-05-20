@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {NavLink} from "react-router-dom";
-
 import { AdminContext } from "../../App"
+
+
 const Availableusers = () => {
   
   const {adminState, dispatchadmin} = useContext(AdminContext)
@@ -11,7 +12,7 @@ const Availableusers = () => {
 
   const getallusers = async () =>{
     try {
-        const res = await fetch ('/getavailableusers', {
+        const res = await fetch ('http://localhost:5000/getavailableusers', {
             method: 'GET',
         });
 
@@ -31,7 +32,7 @@ useEffect(() => {
 let userIdFromDashBoard;
   const deleteUser = (e) =>{
     userIdFromDashBoard = e.target.id;
-    return fetch("/deleteUserfromdashboard", {
+    return fetch("http://localhost:5000/deleteUserfromdashboard", {
       method: "POST",
       headers:{
           "Content-Type" : "application/json"
@@ -67,7 +68,7 @@ let userIdFromDashBoard;
             <div className="sidebar">
     <div className="logo-details">
       <i className=''></i>
-      <span className='logo_name1'>Bike</span><span className="logo_name">Book</span>
+      <span className='logo_name1'>Bicycle</span><span className="logo_name">Rental</span>
     </div>
       <ul className="nav-links">
         <li>

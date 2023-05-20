@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
-
 import { UserContext } from "../App"
 
 const Rentabike = () => {
 
+    
     const {state, dispatch} = useContext(UserContext)
 
     const history = useNavigate(); 
@@ -111,7 +111,7 @@ const Rentabike = () => {
         let itemId = e.target.id;
        
 
-        const res = await fetch("/addrentcartocart", {
+        const res = await fetch("http://localhost:5000/addrentcartocart", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -150,12 +150,12 @@ const Rentabike = () => {
         }
     }
 
-
+    
 
     const [searchText, setSearchText] = useState('');
 
     const searchTextBtn = async () =>{
-        const res = await fetch("/searchRentBike", {
+        const res = await fetch("http://localhost:5000/searchRentBike", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -172,7 +172,7 @@ const Rentabike = () => {
 
     const getSearchData = async () =>{
         try {
-            const res = await fetch ('/rentbikesearchCategory', {
+            const res = await fetch ('http://localhost:5000/rentbikesearchCategory', {
                 method: 'GET',
             });
 
@@ -188,14 +188,26 @@ const Rentabike = () => {
         } catch (error) {
             console.log(error)
         }
+
+        
     }
+    function showRentBike () {
+            var num = Math.floor(Math.random() * (33 - 1 + 1)) + 1;
+            if(num <= 9 ){
+                num = "0"+num;
+            }
+            var str = `image/Bicycle/Bicycle${num}.jpg`
+            return str;
+    }
+
+    
 
     return (
         <>
         
             <header className="header">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                <NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+                <NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
                 <nav className="navbar">
                 <NavLink className="nav-link" to="/">Home</NavLink>
                     
@@ -213,10 +225,10 @@ const Rentabike = () => {
             <div className="rentbikebiked">
 
                 {rentBikesData.map((rentBikesData, index) => 
-                    
+                        
                         [<div className = "bikedivRentbike"  key={rentBikesData._id}>    
 
-                            <img src={rentBikesData.filePath} alt="" style={{width: "80%", height: "70%"}}/>
+                            <img src={showRentBike()} alt="" style={{width: "80%", height: "70%"}}/>
                             <h4>{rentBikesData.brand}</h4>
                             <p>{rentBikesData.model}</p>
 
@@ -237,7 +249,7 @@ const Rentabike = () => {
                             <p style={{color: "red"}}>Availibility : {rentBikesData.availability +" hours"}</p>
                             
                             <div style={{display: "flex", gap: "15px"}}>
-                            <button className='bikedbtn' ><NavLink className="nav-link" to={{pathname: '/rentbikereviews', state:{id: rentBikesData._id}}} >Bike Reviews</NavLink></button>
+                            {/* <button className='bikedbtn' ><NavLink className="nav-link" to={{pathname: '/rentbikereviews', state:{id: rentBikesData._id}}} >Bike Reviews</NavLink></button> */}
                             <button className='bikedbtn' id = {index} onClick={showBike}>show bike</button>
                             </div>
                         </div>,

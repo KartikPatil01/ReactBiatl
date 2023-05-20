@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 const AdminSignout = () => {
 
 
@@ -10,13 +11,13 @@ const AdminSignout = () => {
     const history = useNavigate();
 
     useEffect(()=>{
-        fetch('/adminsignout',{
+        fetch('http://localhost:5000/adminsignout',{
             method: "GET",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            credentials: "include"
+            // credentials: "include"
         })
         .then((res)=>{
             localStorage.removeItem("Admin")

@@ -1,10 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { NavLink } from "react-router-dom";
-
 import { UserContext } from "../App"
 
 const ExploreRentBike = () => {
-
     const {state, dispatch} = useContext(UserContext)
 
 
@@ -30,7 +28,7 @@ const ExploreRentBike = () => {
 
     const exploreRentBike = async () =>{
         try {
-            const res = await fetch ('/exploreRentBikeData', {
+            const res = await fetch ('http://localhost:5000/exploreRentBikeData', {
                 method: 'GET',
             });
 
@@ -76,13 +74,22 @@ const ExploreRentBike = () => {
         }
     }
 
+    function showBike () {
+
+        var num = Math.floor(Math.random() * (33 - 1 + 1)) + 1;
+        if(num <= 9 ){
+            num = "0"+num;
+        }
+        var str = `image/Bicycle/Bicycle${num}.jpg`
+        return str;
+    }
 
     return (
         <>
 
             <header className="header">
             <div id="menu-btn" className="fas fa-bars"></div>
-            <NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+            <NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
 
             <nav className="navbar">
                 <NavLink  to="/">Home</NavLink>
@@ -105,7 +112,7 @@ const ExploreRentBike = () => {
         
         <div className = "exploreBikesImg"  key={renttbikesData._id}>    
 
-            <img src={renttbikesData.filePath} alt="" style={{width: "80%", height: "70%"}} onClick={handleClick}/>
+            <img src={showBike()} alt="" style={{width: "80%", height: "70%"}} onClick={handleClick}/>
             <h4><b>{renttbikesData.brand}</b></h4>
             <p>{renttbikesData.model}</p>
             </div>

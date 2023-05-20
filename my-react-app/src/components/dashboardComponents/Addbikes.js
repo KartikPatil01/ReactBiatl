@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {NavLink, useNavigate} from "react-router-dom";
-
 import { AdminContext } from "../../App"
+
 
 const Addbikes = () => {
 
@@ -57,7 +57,7 @@ const Addbikes = () => {
         formData.append('myfile', file.myfile) 
        
        
-        const res = await fetch("/addbikes", {
+        const res = await fetch("http://localhost:5000/addbikes", {
             method: "POST",
             body: formData
               
@@ -109,10 +109,24 @@ const Addbikes = () => {
         rentData.append('myrentfile', rentFile.myrentfile) 
        
        console.log(JSON.stringify(rentFile));
+       window.alert("Bicycle details added successfully");
         const res = await fetch("http://localhost:5000/addrentbikes", {
             method: "POST",
             body: rentData
         })
+      
+        setRentBike({...rentbike, 
+        "brand" : "",
+        "model" : "",
+        "year" : "",
+        "color" : "",
+        "seats" : "",
+        "price" : "",
+        "rent" : ""
+      });
+
+      
+
         
     }
 
@@ -141,7 +155,7 @@ const Loginbutton= () =>{
             <div className="sidebar">
     <div className="logo-details">
       <i className=''></i>
-      <span className='logo_name1'>Bike</span><span className="logo_name">Book</span>
+      <span className='logo_name1'>Bicycle</span><span className="logo_name">Rental</span>
     </div>
       <ul className="nav-links">
         <li>

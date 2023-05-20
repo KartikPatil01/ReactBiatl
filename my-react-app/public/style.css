@@ -81,7 +81,7 @@ section{
 .bikedivRentbike{
     display : block;
     background-color : #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 var(--primary-color_hover);
     border-radius: 7px;
     padding : 40px;
     font-size : 18px;
@@ -106,18 +106,18 @@ section{
 
 .formDivRentbike{
     display : none;
-    background-color : #ff6a00;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color : white;
+    box-shadow: 0 4px 8px 0 var(--primary-color);
     border-radius: 7px;
     padding : 40px;
     font-size : 18px;
     text-align : center;
-    color: white;
+    color: var(--primary-color);
 }
 
 
 .reviewsdiv{
-    background-color : #ff6a00;
+    background-color : var(--primary-color);
     padding : 70px;
     font-size : 18px;
     text-align : center;
@@ -189,8 +189,8 @@ section{
     margin-top: 1rem;
     width: 120px;
     padding:.2rem 1rem;
-    background:var(--white);
-    color:var(--green);
+    background:var(--primary-color);
+    color:white;
     cursor: pointer;
     font-size: 1.3rem;
     border-radius: .5rem;
@@ -199,8 +199,8 @@ section{
 }
 
 .bikedbtn:hover{
-    background: #ff6a00;
-    color: white;
+    background:var(--secondary-color);
+    color: black;
 }
 
 
@@ -216,8 +216,8 @@ section{
 
 
 .exploreBikesImg{
-    background-color : #f1f1f1;
-    box-shadow: 0 4px 8px 0 rgb(148, 144, 140);
+    background-color : white;
+    box-shadow: 0 4px 8px 0 var(--primary-color_hover);
     border-radius: 9px;
     padding : 40px;
     font-size : 18px;
@@ -244,7 +244,7 @@ section{
     justify-content: space-between;
     position: fixed;
     top:0; left:0; right:0;
-    padding:2rem 9%;
+    padding:1rem 5%;
     z-index: 1000;
     background-color: #ffffff;
 }
@@ -261,12 +261,13 @@ section{
 
 .header .navbar a{
     margin:0 1rem;
-    font-size: 2.0rem;
+    font-size: 1.8rem;
+    font-weight: 500;
     color:var(--white);
 }
 
 .header .navbar a:hover{
-    color:var(--black);
+    color:var(--primary-color_hover);
 }
 
 #login-btn .btn{
@@ -937,4 +938,76 @@ section{
 }
 
 
+/* navigate */
+.route-box{
+    background-color: white;
+    height: 20vh;
+    width: 40vw;
+    margin : 70px auto;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 0px;
+    z-index: 10000;
+}
 
+.route-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    overflow-y: hidden;
+}
+
+.route-container input, button{
+    height: 40px;
+    width: fit-content;
+    padding-left: 5px;
+    border-radius: 6px;
+    background-color: #efecec;
+}
+
+.route-container .route-btn {
+    background-color: var(--primary-color);
+    width: 14rem ;
+    padding: 0 auto;
+    color: white;
+}
+
+.route-container .route-btn:hover {
+    background-color: var(--primary-color_hover);
+    color: black;
+    cursor: pointer;
+}
+.route-container p {
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.map-box {
+    height: 85%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    /* background-color: red; */
+}
+
+.route-icon{
+    background-color: var(--primary-color);
+    color: white;
+    width: 6rem;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* 
+.leaflet-container {
+    height: 100vh;
+    width: 100vw;
+} */
+
+#leaflet-map{
+     /* background-color: red; */
+     height: 100vh;
+     width: 100vw;
+}

@@ -10,7 +10,7 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #2e2e2e;
+  background: black;
   transition: all 0.5s ease;
   
 }
@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 .sidebar .logo-details .logo_name{
-  color: #ff6a00;
+  color: var(--secondary-color);
   font-size: 24px;
   font-weight: 500;
   cursor: pointer;
@@ -52,7 +52,7 @@
   display: inline-block;
   margin-top: 1rem;
   padding:.8rem 3rem;
-  background: #181414;
+  background: var(--secondary-color);
   color: white;
   cursor: pointer;
   font-size: 1.7rem;
@@ -63,7 +63,7 @@
 
 .logoutbtnDash:hover{
   box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
-  background: #ff6a00;
+  background: var(--secondary-color);
   color: white;
 }
 
@@ -86,7 +86,7 @@
 }
 .sidebar .nav-links li.active{
   background: white;
-  color: #ff6a00;
+  color: var(--secondary-color);
 }
 
 
@@ -94,8 +94,8 @@
   box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
   border-radius: 7px;
   padding : 10px 10px;
-  background-color: #ff6a00;
-  color: white !important;
+  background-color: var(--secondary-color);
+  color: black !important;
 }
 
 
@@ -105,14 +105,14 @@
   min-width: 60px;
   text-align: center;
   font-size: 18px;
-  /*color: #ff6a00;*/
+  /*color: var(--secondary-color);*/
 }
 .sidebar .nav-links li i:hover{
   color: #ffff;
 }
 
 .dashlinks{
-  color: #ff6a00;
+  color: var(--secondary-color);
   font-size: 15px;
 }
 
@@ -124,7 +124,7 @@
 
 
 .sidebar .nav-links li.allLinks_name{
-  color: #ff6a00;
+  color: var(--secondary-color);
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
@@ -154,7 +154,7 @@
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background: #2e2e2e;
+  background: black;
   display: flex;
   align-items: center;
   position: fixed;
@@ -163,7 +163,8 @@
   z-index: 100;
   padding: 0 20px;
   transition: all 0.5s ease;
-  color: #ff6a00;
+  color: var(--secondary-color);
+  
 }
 .sidebar.active ~ .home-section nav{
   left: 60px;
@@ -216,19 +217,20 @@ nav .search-box .bx-search{
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
-  background: white;
-  border: 2px solid #ff6a00;
+  background: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: 6px;
   height: 50px;
   min-width: 100px;
   padding: 0 2px 0 2px;
   cursor: pointer;
+  
 }
 
 nav .profile-details .admin_name{
   font-size: 15px;
   font-weight: 500;
-  color: #ff6a00;
+  color : black;
   margin: 20px 20px 20px 20px;
   white-space: nowrap;
 }
@@ -347,7 +349,8 @@ nav .profile-details .admin_name{
   margin: -15px 0 0 6px;
 }
 .home-content .box .cart.two{
-   color: #ff6a00;
+   color: var(--secondary-color
+);
    background: #C0F2D8;
  }
 .home-content .box .cart.three{
@@ -384,7 +387,7 @@ nav .profile-details .admin_name{
 .sales-boxes .box .title{
   font-size: 24px;
   font-weight: 500;
-  color: #ff6a00;
+  color: var(--secondary-color);
   /* margin-bottom: 10px; */
 }
 .sales-boxes .sales-details li.topic{

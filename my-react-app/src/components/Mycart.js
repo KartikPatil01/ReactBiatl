@@ -15,7 +15,7 @@ const Mycart = () => {
 
     const getCartData = async () =>{
         try {
-            const res = await fetch ('/getCartData', {
+            const res = await fetch ('http://localhost:5000/getCartData', {
                 method: 'GET',
             });
 
@@ -43,7 +43,7 @@ const Mycart = () => {
     })
 
     const handlePayMethod = (itemsPrice, token) =>{    
-        return fetch("/stripePay", {
+        return fetch("http://localhost:5000/stripePay", {
                 method: "POST",
                 headers:{
                     "Content-Type" : "application/json"
@@ -62,7 +62,7 @@ const Mycart = () => {
     }
 
     const updateDataBase = () =>{
-        return fetch("/updateDataBase", {
+        return fetch("http://localhost:5000/updateDataBase", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -94,7 +94,7 @@ const Mycart = () => {
     let cartitemid
     const deleteItem = (e) =>{
         cartitemid = e.target.id;
-        return fetch("/deleteitemfromcart", {
+        return fetch("http://localhost:5000/deleteitemfromcart", {
           method: "POST",
           headers:{
               "Content-Type" : "application/json"
@@ -110,7 +110,7 @@ const Mycart = () => {
         <>
             <header className="header">
                 <div id="menu-btn" className="fas fa-bars"></div>
-                <NavLink className="logo" to="/"> <span>Bike</span>Book </NavLink>
+                <NavLink className="logo" to="/"> <span>Bicycle</span>Rental </NavLink>
 
                 <nav className="navbar">
                 <NavLink  to="/">Home</NavLink>

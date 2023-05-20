@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const callDashboard =  async () =>{
       try {
-          const res = await fetch('/dashboard', {
+          const res = await fetch('http://localhost:5000/dashboard', {
             method: "GET",
             headers: {
               Accept : "application/json",
@@ -65,7 +65,7 @@ const Loginbutton= () =>{
   <div className="sidebar">
     <div className="logo-details">
       <i className=''></i>
-      <span className='logo_name1'>Bike</span><span className="logo_name">Book</span>
+      <span className='logo_name1'>Bicycle</span><span className="logo_name">Rental</span>
     </div>
       <ul className="nav-links">
         <li>

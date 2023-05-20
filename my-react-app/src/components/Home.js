@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { UserContext } from "../App";
 
 const Home = () => {
@@ -15,7 +14,7 @@ const Home = () => {
 
   const userContact = async () => {
     try {
-      const res = await fetch("/getdata", {
+      const res = await fetch("http://localhost:5000/getdata", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +55,7 @@ const Home = () => {
 
     const { name, email, phone, message } = userData;
 
-    const res = await fetch("/contact", {
+    const res = await fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -116,7 +115,7 @@ const Home = () => {
         <nav className="navbar">
           <Link to="/">Home</Link>
           <Link to="/rentbike">Rent Bikes</Link>
-          <a href="#services">Testimonial</a>
+          <Link to="/navigate">Navigation</Link>
           <a href="#contact">Contact</a>
         </nav>
         <div id="login-btn">

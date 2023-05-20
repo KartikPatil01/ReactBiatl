@@ -72,7 +72,7 @@ userSchema.pre('save', async function(next){
 //generating token
 userSchema.methods.generateAuthToken = async function(){
     try{
-        let token = jwt.sign({_id: this._id}, process.env.SECRET_KEY);
+        let token = jwt.sign({_id: this._id}, "Vo7AcPRMvjb3b5SUHx73vinnPp90BBEStC7*******");
     
         this.tokens = this.tokens.concat({token:token});
         await this.save();
@@ -94,7 +94,7 @@ userSchema.methods.addMessage = async function (name, email, phone, message){
     }
 }
 
-const User = mongoose.model('USER', userSchema);
+const User = mongoose.model('USERs', userSchema);
 
 module.exports = User;
 

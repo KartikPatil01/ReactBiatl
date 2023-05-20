@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
 import { UserContext } from "../App";
 
 const Signin = () => {
@@ -14,7 +13,7 @@ const Signin = () => {
   const signinUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/signin", {
+    const res = await fetch("http://localhost:5000/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +24,6 @@ const Signin = () => {
       }),
     });
     const data = res.json();
-
     if (res.status === 400 || !data) {
       window.alert("invalid Credentials");
     } else {

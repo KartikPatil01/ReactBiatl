@@ -17,6 +17,7 @@ import Rentbikecart from "./components/Rentbikecart";
 import Rentbikereviews from "./components/Rentbikereviews";
 import Signout from "./components/Signout";
 import ExploreRentBike from "./components/ExploreRentBike";
+import Navigate from "./components/Navigate";
 
 
 import {initialState, reducer} from "../src/reducer/UseReducer"
@@ -42,6 +43,7 @@ const App = () => {
         <Route exact path="/" element={<Home />}> </Route>      
         <Route path="signin" element={<Signin/>}> </Route>
         <Route path="/signup" element={<Signup/>} ></Route>
+        <Route path="/navigate" element={<Navigate/>} ></Route>
         <Route path="/signout" element={<Signout/>}> </Route>
         <Route path="/mycart" element={ <Mycart/>}> </Route>
         <Route path="/rentbike" element={<Rentabike/> } ></Route>
